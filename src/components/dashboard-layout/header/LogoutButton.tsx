@@ -14,7 +14,7 @@ export function LogoutButton() {
         onSuccess: () => router.push('/auth')
     })
     return (
-        <div className='absolute top-1 right-1'>
+        <div className='absolute top-3 right-3'>
             <button 
                 className="opacity-20 hover:opacity-100 transition-opacity duration-300"
                 onClick={() => logout()}

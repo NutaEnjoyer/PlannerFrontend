@@ -1,7 +1,6 @@
 import { COLORS } from "@/constants/color.constants";
 import { GanttChartSquare } from "lucide-react";
 import Link from "next/link";
-import { LogoutButton } from "./LogoutButton";
 import { MENU } from "./menu.data";
 import { MenuItem } from "./MenuItem";
 
@@ -27,7 +26,6 @@ export function Sidebar () {
                     </span>
                 </Link>
                 <div className='p-3 relative'>
-                    <LogoutButton />
                     {MENU.map(item => (
                         <MenuItem item={item} key={item.link} />
                     ))}
