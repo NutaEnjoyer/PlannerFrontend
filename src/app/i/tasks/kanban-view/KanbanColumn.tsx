@@ -49,7 +49,7 @@ export function KanbanColumn({label, value, items, setItems}: IKanbanColumn) {
 
                         {provider.placeholder}
 
-                        {value !== 'completed' && !items?.some(item => item.id) && (
+                        {value !== 'completed' && (
                             <KanbanAddCardInput 
                                 setItems={setItems}
                                 filterDate={FILTERS[value] ? FILTERS[value].format() : undefined}

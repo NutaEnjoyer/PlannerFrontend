@@ -1,4 +1,4 @@
-import { IBase } from "./root.types"
+import { IBase } from "./base.types"
 
 export interface ITimeBlockResponse extends IBase {
     name: string

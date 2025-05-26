@@ -5,3 +5,11 @@ export const COLORS = {
     sidebar: '#141515',
     bg: '#0E0F0F'
 }
+
+// export const COLORS = {
+//     primary: '#C1C8E4',
+//     secondary: '#8860D0',
+//     border: '#84CEEB',
+//     sidebar: '#5680E9',
+//     bg: '#5AB9EA'
+// }

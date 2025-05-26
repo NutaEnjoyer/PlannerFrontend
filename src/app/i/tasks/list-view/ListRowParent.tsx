@@ -49,8 +49,8 @@ export function ListRowParent({label, value, items, setItems}: IListRowParent) {
                     ))}
 
                     {provider.placeholder}
-
-                    {value !== 'completed' && !items?.some(item => item.id) && (
+                    
+                    {value !== 'completed' && (
                         <ListAddRowInput 
                             setItems={setItems}
                             filterDate={FILTERS[value] ? FILTERS[value].format() : undefined}

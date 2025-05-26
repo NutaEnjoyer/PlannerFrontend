@@ -1,10 +1,10 @@
 import { getAccessToken, removeTokenFromStorage } from '@/services/auth-token.service';
-import axios, { CreateAxiosDefaults } from 'axios';
+import axios, { CreateAxiosDefaults, InternalAxiosRequestConfig } from 'axios';
 import { errorCatch } from './error';
 import { authService } from '@/services/auth.service';
 
-const options: CreateAxiosDefaults = {
-    baseURL: 'http://localhost:5000/api',
+const DEFAULT_AXIOS_CONFIG: CreateAxiosDefaults = {
+    baseURL: process.env.API_URL || 'http://localhost:5000/api',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
@@ -12,21 +12,23 @@ const options: CreateAxiosDefaults = {
     withCredentials: true,
 };
 
-const axiosClassic = axios.create(options);
-const axiosWithAuth = axios.create(options);
+const axiosClassic = axios.create(DEFAULT_AXIOS_CONFIG);
+const axiosWithAuth = axios.create(DEFAULT_AXIOS_CONFIG);
 
-axiosWithAuth.interceptors.request.use((config) => {
-    const accessToken = getAccessToken()
+const injectAuthHeader = (config: InternalAxiosRequestConfig) => {
+    const accessToken = getAccessToken();
 
     if(config?.headers && accessToken) {
         config.headers.Authorization = `Bearer ${accessToken}`
     }
 
-    return config
-})
+    return config;
+}
+
+axiosWithAuth.interceptors.request.use(injectAuthHeader);
 
 axiosWithAuth.interceptors.response.use(
-    (config) => config,
+    (response) => response,
     async (error) => {
         const originalRequest = error.config;
 
