@@ -4,7 +4,7 @@ import { errorCatch } from './error';
 import { authService } from '@/services/auth.service';
 
 const DEFAULT_AXIOS_CONFIG: CreateAxiosDefaults = {
-    baseURL: process.env.API_URL || 'http://backend:5000/api',
+    baseURL: process.env.API_URL || 'http://95.27.74.242:5000/api',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
