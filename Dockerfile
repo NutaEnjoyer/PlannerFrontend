@@ -2,13 +2,13 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# 1. Устанавливаем pnpm глобально
+# Устанавливаем pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# 2. Копируем только файлы зависимостей (для лучшего кеширования)
-COPY package.json ./
+# Копируем ВСЕ необходимые файлы для зависимостей
+COPY package.json pnpm-lock.yaml* ./
 
-# 3. Устанавливаем зависимости с кешированием
+# Устанавливаем зависимости с кешированием
 RUN --mount=type=cache,target=/root/.pnpm-store \
     pnpm install --frozen-lockfile --prod false
 
