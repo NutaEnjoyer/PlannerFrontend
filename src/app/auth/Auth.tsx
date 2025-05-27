@@ -41,11 +41,11 @@ export function Auth() {
                 className="w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <Heading title='Authorization' />
+                <Heading title='Auth' />
                 <Field 
                     id='email'
-                    label='Email:'
-                    placeholder='Enter email:'
+                    label='MAIL:'
+                    placeholder='Enter MAIL:'
                     type='email'
                     extra='mb-4'
                     {...register('email', {
