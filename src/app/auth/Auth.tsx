@@ -41,7 +41,7 @@ export function Auth() {
                 className="w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <Heading title='Auth' />
+                <Heading title='Authorization' />
                 <Field 
                     id='email'
                     label='Email:'
