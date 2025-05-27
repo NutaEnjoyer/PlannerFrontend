@@ -6,7 +6,7 @@ WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # 2. Копируем только файлы зависимостей (для лучшего кеширования)
-COPY pnpm-lock.yaml package.json ./
+COPY package.json ./
 
 # 3. Устанавливаем зависимости с кешированием
 RUN --mount=type=cache,target=/root/.pnpm-store \
